@@ -5,6 +5,12 @@
   <% end %>
 </div>
 
+<% if @error != nil %>
+  <div class="alert alert-danger">
+    <%= @error %>
+  </div>
+<% end %>
+
 <form action="/" method="post">
   <div class="form-group">
     <label for="first-name">First Name</label>

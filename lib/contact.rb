@@ -35,7 +35,8 @@ module ContactList
       if @@contact_list.has_key?(full_name)
         return full_name + " is already a contact"
       else
-        return @@contact_list[full_name] = self
+        @@contact_list[full_name] = self
+        return nil
       end
     end
 
