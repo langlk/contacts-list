@@ -85,4 +85,11 @@ describe('ContactList::Contact') do
     ContactList::Contact.clear_all
     expect(ContactList::Contact.all).to(eq({}))
   end
+
+  it 'can delete contact object from the contact list' do
+    bob = ContactList::Contact.new({:first_name => "Bob", :last_name => "Bobbington", :job_title => "Developer", :company => "Microsoft", :contact_type => "Professional"})
+    bob.save
+    bob.delete
+    expect(ContactList::Contact.all).to(eq({}))
+  end
 end

@@ -40,6 +40,15 @@ module ContactList
       end
     end
 
+    def delete
+      full_name = @first_name + " " + @last_name
+      if @@contact_list.has_key?(full_name)
+        @@contact_list.delete(full_name)
+      else
+        return "Can't find contact"
+      end
+    end
+
     def self.all
       @@contact_list
     end

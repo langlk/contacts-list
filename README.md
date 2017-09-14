@@ -51,6 +51,9 @@ _A Ruby Web App_
 * Contact class can clear contact list.
   * Example input: Contact.clear_all
   * Example output: Contact.all = {}
+* User can delete a contact object from the contact list
+  * Example input: bob.delete
+  * Example output: Contact.find(bob) = "Can't find contact"
 
 ## Support and contact details
 

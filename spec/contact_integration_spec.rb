@@ -81,4 +81,13 @@ describe('Contact List', {:type => :feature}) do
     expect(page).to have_content("Default: bob@email.com")
     expect(page).to have_content("Default: 1234 redmond way, redmond wa 89389")
   end
+
+  it "allows user to delete contacts" do
+    visit('/')
+    click_link('Bob Bobbington')
+    click_button('Delete')
+    expect(page).to have_content("Bob Bobbington has been deleted.")
+    click_link("Back to Contacts List")
+    expect(page).to have_no_content('Bob Bobbington')
+  end
 end

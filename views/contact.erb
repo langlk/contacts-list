@@ -25,8 +25,12 @@
   <% end %>
 <% end %>
 
-<form action="/edit/<%= @contact.first_name + '_' + @contact.last_name %>" method="post">
+<form action="/edit/<%= @contact.first_name %>_<%= @contact.last_name %>" method="post">
   <button type="submit" class="btn">Edit</button>
+</form>
+
+<form action="/delete/<%= @contact.first_name %>_<%= @contact.last_name %>" method="post">
+  <button type="submit" class="btn">Delete</button>
 </form>
 
 <a href="/"><button class="btn">Back to Contacts List</button></a>

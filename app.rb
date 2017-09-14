@@ -86,3 +86,10 @@ post('/contact/:name_route') do
   end
   erb(:contact)
 end
+
+post("/delete/:name_route") do
+  @contact_name = params[:name_route].split('_').join(' ')
+  contact = ContactList::Contact.find(@contact_name)
+  contact.delete
+  erb(:delete)
+end
