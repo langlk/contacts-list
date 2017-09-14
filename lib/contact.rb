@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
 
-class Contact
+module ContactList
+  class Contact
+  end
 end

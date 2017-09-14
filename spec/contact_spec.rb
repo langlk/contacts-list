@@ -3,5 +3,6 @@
 require 'rspec'
 require 'contact'
 
-describe('Contact') do
+describe('ContactList::Contact') do
+  
 end
