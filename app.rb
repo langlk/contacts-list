@@ -39,5 +39,29 @@ end
 post('/contact/:name_route') do
   name = params[:name_route].split('_').join(' ')
   @contact = ContactList::Contact.find(name)
+  @contact.job_title = params["job-title"]
+  @contact.company = params["company"]
+  @contact.contact_type = params["contact-type"]
+  phone_number = params["phone-number"]
+  phone_type = params["phone-type"]
+  if phone_type.length == 0
+    @contact.add_phone(phone_number)
+  else
+    @contact.add_phone(phone_number, phone_type)
+  end
+  email = params["email"]
+  email_type = params["email-type"]
+  if email_type.length == 0
+    @contact.add_email(email)
+  else
+    @contact.add_email(email, email_type)
+  end
+  address = params["address"]
+  address_type = params["address-type"]
+  if address_type.length == 0
+    @contact.add_address(address)
+  else
+    @contact.add_address(address, address_type)
+  end
   erb(:contact)
 end

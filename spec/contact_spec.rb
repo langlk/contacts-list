@@ -42,7 +42,7 @@ describe('ContactList::Contact') do
   it "sets phone/address/email to default when not given a type" do
     bob = ContactList::Contact.new({:first_name => "Bob", :last_name => "Bobbington", :job_title => "Developer", :company => "Microsoft", :contact_type => "Professional"})
     bob.add_address("1234 Redmond Way, Redmond, WA 99999")
-    expect(bob.address).to(eq({"default" => "1234 Redmond Way, Redmond, WA 99999"}))
+    expect(bob.address).to(eq({"Default" => "1234 Redmond Way, Redmond, WA 99999"}))
   end
 
   it "provides list of all Contact objects" do

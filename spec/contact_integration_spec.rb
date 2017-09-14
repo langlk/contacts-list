@@ -39,15 +39,19 @@ describe('Contact List', {:type => :feature}) do
     click_button("Add")
     expect(page).to have_content("Bob Bobbington is already a contact")
   end
-  # it('will check if users input matches the answer') do
-  #   visit('/')
-  #   fill_in('name', :with => 'mango')
-  #   fill_in('rank', :with => 1)
-  #   click_button('submit')
-  #   expect(page).to have_content('mango')
-  #   fill_in('name', :with => 'mango')
-  #   fill_in('rank', :with => 1)
-  #   click_button('submit')
-  #   expect(page).to have_content("Sorry the rank or item name has already been entered")
-  # end
+
+  it "updates contact information and saves" do
+    visit('/')
+    click_link('Bob Bobbington')
+    click_button('Edit')
+    fill_in('job-title', :with => "Project Manager")
+    fill_in('phone-number', :with => "555 555 5555")
+    fill_in('email', :with => "bob@email.com")
+    fill_in('address', :with => "1234 redmond way, redmond wa 89389")
+    click_button('Update')
+    expect(page).to have_content("Project Manager at Microsoft")
+    expect(page).to have_content("Default: 555 555 5555")
+    expect(page).to have_content("Default: bob@email.com")
+    expect(page).to have_content("Default: 1234 redmond way, redmond wa 89389")
+  end
 end

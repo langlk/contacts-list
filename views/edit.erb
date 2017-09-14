@@ -15,6 +15,17 @@
   </div>
 
   <h4>Phone</h4>
+  <% @contact.phone.each do |type, number| %>
+    <div class="form-group">
+      <label for="phone-number">Number</label>
+      <input type="tel" name="phone-number" class="form-control" value="<%= number %>">
+    </div>
+    <div class="form-group">
+      <label for="phone-type">Type</label>
+      <input type="text" name="phone-type" class="form-control" value="<%= type %>">
+    </div>
+  <% end %>
+  <h5>Add Phone:<h5>
   <div class="form-group">
     <label for="phone-number">Number</label>
     <input type="tel" name="phone-number" class="form-control">
@@ -24,10 +35,22 @@
     <input type="text" name="phone-type" class="form-control">
   </div>
 
+
   <h4>Email</h4>
+  <% @contact.email.each do |type, email| %>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="tel" name="email" class="form-control" value="<%= email %>">
+    </div>
+    <div class="form-group">
+      <label for="phone-type">Type</label>
+      <input type="text" name="phone-type" class="form-control" value="<%= type %>">
+    </div>
+  <% end %>
+  <h5>Add Email:<h5>
   <div class="form-group">
     <label for="email">Email</label>
-    <input type="email" name="email" class="form-control">
+    <input type="tel" name="email" class="form-control">
   </div>
   <div class="form-group">
     <label for="email-type">Type</label>
@@ -35,9 +58,20 @@
   </div>
 
   <h4>Address</h4>
+  <% @contact.address.each do |type, address| %>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input type="tel" name="address" class="form-control" value="<%= address %>">
+    </div>
+    <div class="form-group">
+      <label for="address-type">Type</label>
+      <input type="text" name="address-type" class="form-control" value="<%= type %>">
+    </div>
+  <% end %>
+  <h5>Add Address:<h5>
   <div class="form-group">
     <label for="address">Address</label>
-    <input type="text" name="address" class="form-control">
+    <input type="tel" name="address" class="form-control">
   </div>
   <div class="form-group">
     <label for="address-type">Type</label>
