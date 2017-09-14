@@ -33,14 +33,18 @@ _A Ruby Web App_
 * Contact class sets a phone number, address, or email to "default" if it's not given a type.
   * Example input: bob.phone("555-555-5555")
   * Example output: bob.phone = {"default" => "555-555-555"}
-* Contact class allows user to save a contact object to view later
-  * Example input: bob.save
 * Contact class can provide list of all Contact objects.
   * Example input: Contact.all
   * Example output: [bob]
+* Contact class allows user to save a contact object to view later
+  * Example input: bob.save
+  * Example output: Contact.find("Bob")
 * Contact class can find a contact by name.
-  * Example output: Contact.find("bob")
-  * Example input: bob
+  * Example input: Contact.find("bob")
+  * Example output: bob
+* Contact class returns "No such contact" when contact name is not in list.
+  * Example input: Contact.find("sam")
+  * Example output: "No such contact"
 
 ## Support and contact details
 

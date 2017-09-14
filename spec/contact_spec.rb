@@ -40,4 +40,29 @@ describe('ContactList::Contact') do
     bob.add_address("1234 Redmond Way, Redmond, WA 99999")
     expect(bob.address).to(eq({"default" => "1234 Redmond Way, Redmond, WA 99999"}))
   end
+
+  it "provides list of all Contact objects" do
+    expect(ContactList::Contact.all).to(eq({}))
+  end
+
+  it "allows user to save a contact to view later" do
+    bob = ContactList::Contact.new({:first_name => "Bob", :last_name => "Bobbington", :job_title => "Developer", :company => "Microsoft", :contact_type => "Professional"})
+    bob.save
+    expect(ContactList::Contact.all).to(eq({"Bob Bobbington" => bob}))
+  end
+
+  it "can find a contact by full name" do
+    bob = ContactList::Contact.new({:first_name => "Bob", :last_name => "Bobbington", :job_title => "Developer", :company => "Microsoft", :contact_type => "Professional"})
+    bob.save
+    tim = ContactList::Contact.new({:first_name => "Tim", :last_name => "Timson", :job_title => "Developer", :company => "Microsoft", :contact_type => "Professional"})
+    tim.save
+    expect(ContactList::Contact.find("Bob Bobbington")).to(eq(bob))
+  end
+
+  it "returns an error when contact is not saved" do
+    bob = ContactList::Contact.new({:first_name => "Bob", :last_name => "Bobbington", :job_title => "Developer", :company => "Microsoft", :contact_type => "Professional"})
+    bob.save
+    john = ContactList::Contact.new({:first_name => "John", :last_name => "Johnson", :job_title => "Developer", :company => "Microsoft", :contact_type => "Professional"})
+    expect(ContactList::Contact.find("John Johnson")).to(eq("Can't find contact"))
+  end
 end
