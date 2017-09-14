@@ -2,7 +2,8 @@
 
 module ContactList
   class Contact
-    attr_accessor :first_name, :last_name, :job_title, :company, :contact_type, :phone, :email, :address
+    attr_reader :phone, :email, :address
+    attr_accessor :first_name, :last_name, :job_title, :company, :contact_type
 
     def initialize(attributes)
       @first_name = attributes.fetch(:first_name)
@@ -10,9 +11,21 @@ module ContactList
       @job_title = attributes.fetch(:job_title)
       @company = attributes.fetch(:company)
       @contact_type = attributes.fetch(:contact_type)
-      @phone = ""
-      @email = ""
-      @address = ""
+      @phone = {}
+      @email = {}
+      @address = {}
+    end
+
+    def add_phone(number, type)
+      @phone[type] = number
+    end
+
+    def add_email(email, type)
+      @email[type] = email
+    end
+
+    def add_address(address, type)
+      @address[type] = address
     end
   end
 end
