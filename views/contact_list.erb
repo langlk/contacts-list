@@ -1,0 +1,30 @@
+<h1>Contact List</h1>
+<div class="contacts">
+  <% @contacts.each do |name, contact|  %>
+    <p><a href="/contact/<%= contact.first_name + '_' + contact.last_name %>"><%= name %></a></p>
+  <% end %>
+</div>
+
+<form action="/" method="post">
+  <div class="form-group">
+    <label for="first-name">First Name</label>
+    <input type="text" name="first-name" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="last-name">Last Name</label>
+    <input type="text" name="last-name" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="job-title">Job Title</label>
+    <input type="text" name="job-title" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="company">Company</label>
+    <input type="text" name="company" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="contact-type">Contact Type</label>
+    <input type="text" name="contact-type" class="form-control">
+  </div>
+  <button type="submit" class="btn">Add</button>
+</form>
