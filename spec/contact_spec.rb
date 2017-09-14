@@ -5,6 +5,10 @@ require 'rspec'
 require 'contact'
 
 describe('ContactList::Contact') do
+  before() do
+    ContactList::Contact.clear_all
+  end
+
   it "stores a user's first name, last name, job title, company, and contact type" do
     bob = ContactList::Contact.new({:first_name => "Bob", :last_name => "Bobbington", :job_title => "Developer", :company => "Microsoft", :contact_type => "Professional"})
     expect(bob.first_name).to(eq("Bob"))
@@ -51,6 +55,13 @@ describe('ContactList::Contact') do
     expect(ContactList::Contact.all).to(eq({"Bob Bobbington" => bob}))
   end
 
+  it "does not allow a user to save a new contact with the same name as an existing one" do
+    bob = ContactList::Contact.new({:first_name => "Bob", :last_name => "Bobbington", :job_title => "Developer", :company => "Microsoft", :contact_type => "Professional"})
+    bob.save
+    bob = ContactList::Contact.new({:first_name => "Bob", :last_name => "Bobbington", :job_title => "Developer", :company => "Microsoft", :contact_type => "Professional"})
+    expect(bob.save).to(eq("Bob Bobbington is already a contact"))
+  end
+
   it "can find a contact by full name" do
     bob = ContactList::Contact.new({:first_name => "Bob", :last_name => "Bobbington", :job_title => "Developer", :company => "Microsoft", :contact_type => "Professional"})
     bob.save
@@ -64,5 +75,14 @@ describe('ContactList::Contact') do
     bob.save
     john = ContactList::Contact.new({:first_name => "John", :last_name => "Johnson", :job_title => "Developer", :company => "Microsoft", :contact_type => "Professional"})
     expect(ContactList::Contact.find("John Johnson")).to(eq("Can't find contact"))
+  end
+
+  it "can clear contact list" do
+    bob = ContactList::Contact.new({:first_name => "Bob", :last_name => "Bobbington", :job_title => "Developer", :company => "Microsoft", :contact_type => "Professional"})
+    bob.save
+    john = ContactList::Contact.new({:first_name => "John", :last_name => "Johnson", :job_title => "Developer", :company => "Microsoft", :contact_type => "Professional"})
+    john.save
+    ContactList::Contact.clear_all
+    expect(ContactList::Contact.all).to(eq({}))
   end
 end

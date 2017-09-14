@@ -31,7 +31,12 @@ module ContactList
     end
 
     def save
-      @@contact_list[@first_name + " " + @last_name] = self
+      full_name = @first_name + " " + @last_name
+      if @@contact_list.has_key?(full_name)
+        return full_name + " is already a contact"
+      else
+        return @@contact_list[full_name] = self
+      end
     end
 
     def self.all
@@ -44,6 +49,10 @@ module ContactList
       else
         return "Can't find contact"
       end
+    end
+
+    def self.clear_all
+      @@contact_list = {}
     end
   end
 end

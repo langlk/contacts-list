@@ -39,12 +39,18 @@ _A Ruby Web App_
 * Contact class allows user to save a contact object to view later
   * Example input: bob.save
   * Example output: Contact.find("Bob")
+* Contact doesn't allow saving a contact object with the same full name as an existing saved contact.
+  * Example input: bob.save
+  * Example output: "Bob Bobbington is already a contact."
 * Contact class can find a contact by name.
   * Example input: Contact.find("bob")
   * Example output: bob
-* Contact class returns "No such contact" when contact name is not in list.
+* Contact class returns "Can't find contact" when contact name is not in list.
   * Example input: Contact.find("sam")
-  * Example output: "No such contact"
+  * Example output: "Can't find contact"
+* Contact class can clear contact list.
+  * Example input: Contact.clear_all
+  * Example output: Contact.all = {}
 
 ## Support and contact details
 
