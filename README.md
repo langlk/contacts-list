@@ -10,7 +10,11 @@ _A Ruby Web App_
 
 ## Setup/Installation Requirements
 
+_You can view this app online [here](https://mighty-stream-71763.herokuapp.com/). To set up on your own machine, follow the steps below:_
+
 * Clone this repository
+* From the root directory, run ```ruby app.rb```
+* Navigate to ```localhost:4567``` in your web browser.
 
 ## Specifications
 
