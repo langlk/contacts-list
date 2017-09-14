@@ -1,0 +1,47 @@
+<h1>Edit Contact: <%= @contact.first_name %> <%= @contact.last_name %> </h1>
+
+<form action="/contact/<%= @contact.first_name %>_<%= @contact.last_name %>" method="post">
+  <div class="form-group">
+    <label for="job-title">Job Title</label>
+    <input type="text" name="job-title" class="form-control" value="<%= @contact.job_title %>">
+  </div>
+  <div class="form-group">
+    <label for="company">Company</label>
+    <input type="text" name="company" class="form-control" value="<%= @contact.company %>">
+  </div>
+  <div class="form-group">
+    <label for="contact-type">Contact Type</label>
+    <input type="text" name="contact-type" class="form-control" value="<%= @contact.contact_type %>">
+  </div>
+
+  <h4>Phone</h4>
+  <div class="form-group">
+    <label for="phone-number">Number</label>
+    <input type="tel" name="phone-number" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="phone-type">Type</label>
+    <input type="text" name="phone-type" class="form-control">
+  </div>
+
+  <h4>Email</h4>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" name="email" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="email-type">Type</label>
+    <input type="text" name="email-type" class="form-control">
+  </div>
+
+  <h4>Address</h4>
+  <div class="form-group">
+    <label for="address">Address</label>
+    <input type="text" name="address" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="address-type">Type</label>
+    <input type="text" name="address-type" class="form-control">
+  </div>
+
+  <button type="submit" class="btn">Update</button>

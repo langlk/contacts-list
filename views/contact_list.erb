@@ -1,7 +1,7 @@
 <h1>Contact List</h1>
 <div class="contacts">
   <% @contacts.each do |name, contact|  %>
-    <p><a href="/contact/<%= contact.first_name + '_' + contact.last_name %>"><%= name %></a></p>
+    <p><a href="/contact/<%= contact.first_name %>_<%= contact.last_name %>"><%= name %></a></p>
   <% end %>
 </div>
 

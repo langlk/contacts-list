@@ -1,0 +1,32 @@
+<h4><%= @contact.contact_type %> Contact</h4>
+
+<h1><%= @contact.first_name + " " + @contact.last_name %></h1>
+
+<h3><%= @contact.job_title %> at <%= @contact.company %></h3>
+
+<% if !@contact.phone.empty? %>
+  <h3>Phone</h3>
+  <% @contact.phone.each do |type, number| %>
+    <p><strong><%= type %>:</strong> <%= number %></p>
+  <% end %>
+<% end %>
+
+<% if !@contact.email.empty? %>
+  <h3>Email</h3>
+  <% @contact.email.each do |type, email| %>
+    <p><strong><%= type %>:</strong> <%= email %></p>
+  <% end %>
+<% end %>
+
+<% if !@contact.address.empty? %>
+  <h3>Address</h3>
+  <% @contact.address.each do |type, address| %>
+    <p><strong><%= type %>:</strong> <%= address %></p>
+  <% end %>
+<% end %>
+
+<form action="/edit/<%= @contact.first_name + '_' + @contact.last_name %>" method="post">
+  <button type="submit" class="btn">Edit</button>
+</form>
+
+<a href="/"><button class="btn">Back to Contacts List</button></a>
