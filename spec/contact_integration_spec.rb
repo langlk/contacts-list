@@ -40,6 +40,14 @@ describe('Contact List', {:type => :feature}) do
     expect(page).to have_content("Bob Bobbington is already a contact")
   end
 
+  it "does not add blank phone/email/addresses to contact" do
+    visit('/')
+    click_link('John Johnson')
+    click_button('Edit')
+    click_button('Update')
+    expect(page).to have_no_content('Default:')
+  end
+
   it "updates contact information and saves" do
     visit('/')
     click_link('Bob Bobbington')

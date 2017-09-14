@@ -42,26 +42,35 @@ post('/contact/:name_route') do
   @contact.job_title = params["job-title"]
   @contact.company = params["company"]
   @contact.contact_type = params["contact-type"]
+
   phone_number = params["phone-number"]
-  phone_type = params["phone-type"]
-  if phone_type.length == 0
-    @contact.add_phone(phone_number)
-  else
-    @contact.add_phone(phone_number, phone_type)
+  if phone_number.length != 0
+    phone_type = params["phone-type"]
+    if phone_type.length == 0
+      @contact.add_phone(phone_number)
+    else
+      @contact.add_phone(phone_number, phone_type)
+    end
   end
+
   email = params["email"]
-  email_type = params["email-type"]
-  if email_type.length == 0
-    @contact.add_email(email)
-  else
-    @contact.add_email(email, email_type)
+  if email.length != 0
+    email_type = params["email-type"]
+    if email_type.length == 0
+      @contact.add_email(email)
+    else
+      @contact.add_email(email, email_type)
+    end
   end
+
   address = params["address"]
-  address_type = params["address-type"]
-  if address_type.length == 0
-    @contact.add_address(address)
-  else
-    @contact.add_address(address, address_type)
+  if address.length != 0
+    address_type = params["address-type"]
+    if address_type.length == 0
+      @contact.add_address(address)
+    else
+      @contact.add_address(address, address_type)
+    end
   end
   erb(:contact)
 end
