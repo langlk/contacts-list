@@ -30,6 +30,9 @@ _A Ruby Web App_
 * Contact class allows multiple phone numbers, email addresses, and addresses for a contact.
   * Example input: bob.phone("555-555-555", "work") bob.phone("111-111-1111" "cell")
   * Example output: bob.phone = {"work" => "555-555-5555", "cell" => "111-111-1111"}
+* Contact class sets a phone number, address, or email to "default" if it's not given a type.
+  * Example input: bob.phone("555-555-5555")
+  * Example output: bob.phone = {"default" => "555-555-555"}
 * Contact class allows user to save a contact object to view later
   * Example input: bob.save
 * Contact class can provide list of all Contact objects.

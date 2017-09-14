@@ -16,15 +16,15 @@ module ContactList
       @address = {}
     end
 
-    def add_phone(number, type)
+    def add_phone(number, type="default")
       @phone[type] = number
     end
 
-    def add_email(email, type)
+    def add_email(email, type="default")
       @email[type] = email
     end
 
-    def add_address(address, type)
+    def add_address(address, type="default")
       @address[type] = address
     end
   end
