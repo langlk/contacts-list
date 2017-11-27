@@ -6,15 +6,16 @@
 
 ## Description
 
-_A Ruby Web App_
+_A Ruby Web App that stores a user's contact list._
 
 ## Setup/Installation Requirements
 
 _You can view this app online [here](https://mighty-stream-71763.herokuapp.com/). To set up on your own machine, follow the steps below:_
 
 * Clone this repository
-* From the root directory, run ```ruby app.rb```
-* Navigate to ```localhost:4567``` in your web browser.
+* Run ```bundle install``` in the project root.
+* Run ```ruby app.rb```
+* Open ```localhost:4567``` in your web browser
 
 ## Specifications
 
@@ -66,6 +67,7 @@ _Please contact [kels.langlois@gmail.com](mailto:kels.langlois@gmail.com) with q
 ## Technologies Used
 
 * Ruby
+* Sinatra
 
 ### License
 
